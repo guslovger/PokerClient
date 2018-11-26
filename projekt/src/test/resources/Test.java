@@ -16,7 +16,7 @@ public class Test {
 
       System.out.println(hands); */
 
-      Player p = new Player("Max", 220, "UTG");
+      Player p = new Player("Maxi", 220, "UTG");
 
       System.out.println(p.toString());
 
