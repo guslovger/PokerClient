@@ -1,0 +1,47 @@
+Vi tog en idé som Erik tidigare haft i form av en app där man kan spara pokerhänder
+man spelat live (alltså på t.ex. ett casino, inte på nätet) för att sedan kunna
+dela dessa med andra. Vi inledde projektet med att börja rita upp hur olika
+lager skulle kommunicera med varandra och hur interfacet skulle se ut.
+Detta gjordes till stor del genom skisser och en prototyp av appen med hjälp
+av hemsidan marvelapp.com.
+
+Vi stötte på ett intressant problem vid korten som ges spelarna. Vi gjorde en
+kontruktur för spelarna som kommer till showdown, alltså att man ser vila
+kort de har, och en konstruktor för alla spelare som foldar, alltså en vanlig
+player konstruktor fast utan card1 och card2. Men för att hålla variablerna
+static final så måste vi instansiera card1 och card2 i konstruktorn trots
+att man inte vet vilka kort de hade. Då diskuterade jag, Henrik och Rikard
+om man skulle ge dem värdet null, eller om man skulle ge dem något annat
+värde, t.ex. en String vid namn Unknown eller liknande. Vi kom i alla fall fram
+till att vi börjar med att ge den null och skapar card1/2Folded() metoder
+som kan användas för att se om kortet är foldat eller inte. Om vi stöter
+på problem med detta framöver så får vi ändra det då.
+När man spelar poker och försöker beräkna odds e i en hand, så utgår
+man ifrån att alla kort som inte syns finns kvar i kortleken och kan delas ut
+på senare gator, även fast dessa kort i verkliga fallets har foldats av en
+annan spelare tidigare under handen. Därför passar null som ett bra värde för
+foldade händer.
+
+
+Hahahhaha hej det här är ändrat Testing 123 123 Testing
+
+
+Contribution:
+
+API:s:
+
+Developer documentation:
+
+Android Platform:
+
+Json:
+
+Java servlet:
+
+Misc:
+
+TODO
+Hur ser en hand ut – göra klass
+Skriva kod som skapar en hand.
+Definiera en hand i en klass.
+Testklass att göra testhänder som kan skriva ut dem.
