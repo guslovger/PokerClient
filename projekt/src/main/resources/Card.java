@@ -2,15 +2,20 @@ package src.main.resources;
 
 public class Card {
 
-  public String suit;
-  public String value;
+  private String suit;
+  private int value;
 
-  public Card (String suit, String value){
+  public Card (String suit, int value){
     this.suit = suit;
     this.value = value;
   }
 
   public String suit() { return suit; }
-  public String value() { return value; }
+  public int value() { return value; }
+
+  @Override
+  public String toString(){
+    return suit + " " + value;
+  }
 
 }
