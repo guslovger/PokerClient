@@ -1,4 +1,4 @@
-package src.test.java;
+package src.test.resources;
 
 //import klasser.PokerHand;
 import java.util.*;

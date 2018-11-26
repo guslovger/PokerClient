@@ -1,4 +1,4 @@
-package src.test.java;
+package src.test.resources;
 
 import java.util.*;
 import src.main.resources.Player;
