@@ -1,3 +1,4 @@
+21/11/16
 Vi tog en idé som Erik tidigare haft i form av en app där man kan spara pokerhänder
 man spelat live (alltså på t.ex. ett casino, inte på nätet) för att sedan kunna
 dela dessa med andra. Vi inledde projektet med att börja rita upp hur olika
@@ -5,6 +6,7 @@ lager skulle kommunicera med varandra och hur interfacet skulle se ut.
 Detta gjordes till stor del genom skisser och en prototyp av appen med hjälp
 av hemsidan marvelapp.com.
 
+26/11/16
 Vi stötte på ett intressant problem vid korten som ges spelarna. Vi gjorde en
 kontruktur för spelarna som kommer till showdown, alltså att man ser vila
 kort de har, och en konstruktor för alla spelare som foldar, alltså en vanlig
