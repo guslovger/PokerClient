@@ -11,8 +11,8 @@ public class PokerHand {
   public ArrayList<Player> players;
 
 
-  // info om var/när/vad som spelas. Spelare. Gator(pre,flop,turn,river)
-                                    //        med tillhörande action
+  /* info om var/när/vad som spelas. Spelare. Gator(pre,flop,turn,river)
+                                            med tillhörande action */
 
   public PokerHand(String hand){
     this.hand = hand;
