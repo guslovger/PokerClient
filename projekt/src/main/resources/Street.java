@@ -4,14 +4,14 @@ import src.main.resources.Player;
 
 public class Street {
 
-  private enum Streets {
+  public enum Streets {
     PREFLOP,
     FLOP,
     TURN,
     RIVER
   }
 
-  private enum Action {
+  public enum Action {
     POST,
     CHECK,
     FOLD,
@@ -21,8 +21,17 @@ public class Street {
   }
 
   public void action(Action act){
+    switch(act) {
+      case POST:
+      System.out.println("popsti...");
+      break;
+      case CHECK:
+      System.out.println();
+      break;
+      default:
+      ;
+    }
 
-    
   }
 
 

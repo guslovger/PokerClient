@@ -10,10 +10,13 @@ public class TestPlayerList {
 
     ArrayList<Player> players = new ArrayList<>();
 
-    Player p1 = new Player("Max",220,"SB", new Card("Hearts",6), new Card("Spades",6));
-    Player p2 = new Player("Frans",160,"BB", new Card("Diamonds",5), new Card("Clubs",5));
+    Player p1 = new Player("Max",220,"SB",
+    new Card(Card.Suit.HEARTS,Card.Rank.SIX), new Card(Card.Suit.SPADES,Card.Rank.SIX));
+    Player p2 = new Player("Frans",160,"BB",
+    new Card(Card.Suit.DIAMONDS,Card.Rank.FIVE), new Card(Card.Suit.CLUBS,Card.Rank.FIVE));
     Player p3 = new Player("Dejan",195,"HJ");
-    Player p4 = new Player("HERO",150,"CO", new Card("Hearts",11), new Card("Hearts",10));
+    Player p4 = new Player("HERO",150,"CO",
+    new Card(Card.Suit.HEARTS,Card.Rank.JACK), new Card(Card.Suit.HEARTS,Card.Rank.TEN));
     Player p5 = new Player("Unknown",100,"BUT");
 
     players.add(p1);
