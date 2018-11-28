@@ -2,9 +2,9 @@ package src.main.resources;
 
 public class HandInfo {
 
-  public String location;
-  public String gametype;
-  public String blinds;
+  private final String location;
+  private final String gametype;
+  private final String blinds;
 
   public HandInfo(String location, String gametype, String blinds) {
     this.location = location;

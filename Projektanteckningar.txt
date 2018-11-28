@@ -9,12 +9,12 @@ av hemsidan marvelapp.com.
 23/11-18
 Frågade Henrik om hur vi ska gå vidare nu när prototypen är klar. Började med
 att skriva klasser för Player(Namn, position, hur stor marker spelaren har och
-vilka kort spelaren har), HandInfo(Var den spelades, om det var cashgame eller 
-turnering, vilken blindsnivå), Card(Suit och Value), Street(WIP, tanken är att 
-det är här metoder för vad spelare gör under de olika gatorna(preflop, flop, 
-turn, river) kanske man ska använda enums här? Måste kollas närmare på.) och 
-PokerHand som är en sammansättning av alla andra klasser, alltså mainklassen 
-av vad en hand är. Började göra testklasser till samtliga klasser också så att 
+vilka kort spelaren har), HandInfo(Var den spelades, om det var cashgame eller
+turnering, vilken blindsnivå), Card(Suit och Value), Street(WIP, tanken är att
+det är här metoder för vad spelare gör under de olika gatorna(preflop, flop,
+turn, river) kanske man ska använda enums här? Måste kollas närmare på.) och
+PokerHand som är en sammansättning av alla andra klasser, alltså mainklassen
+av vad en hand är. Började göra testklasser till samtliga klasser också så att
 en sak kan testas i taget.
 
 26/11-18
@@ -33,7 +33,7 @@ När man spelar poker och försöker beräkna odds e i en hand, så utgår
 man ifrån att alla kort som inte syns finns kvar i kortleken och kan delas ut
 på senare gator, även fast dessa kort i verkliga fallets har foldats av en
 annan spelare tidigare under handen. Därför passar null som ett bra värde för
-foldade händer.
+foldade händer. Annars är Optional ett sätt att lösa detta på.
 
 
 Contribution:
