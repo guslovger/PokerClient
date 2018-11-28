@@ -9,6 +9,7 @@ import static src.main.resources.Street.Action;
 public class Test {
 
   public static void main(String[] args) {
+
     Street st = new Street();
     st.action(CHECK);
     ph.testHand();

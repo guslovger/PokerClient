@@ -4,21 +4,24 @@ public class HandInfo {
 
   private final String location;
   private final String gametype;
-  private final String blinds;
+  public static int smallBlind;
+  public static int bigBlind;
 
-  public HandInfo(String location, String gametype, String blinds) {
+  public HandInfo(String location, String gametype, int smallBlind, int bigBlind) {
     this.location = location;
     this.gametype = gametype;
-    this.blinds = blinds;
+    this.smallBlind = smallBlind;
+    this.bigBlind = bigBlind;
   }
 
   public String location() { return location; }
   public String gametype() { return gametype; }
-  public String blinds() { return blinds; }
+  public int smallBlind() { return smallBlind; }
+  public int bigBlind() { return bigBlind; }
 
   @Override
   public String toString(){
-    return location + " " + gametype + " " + blinds;
+    return location + " " + gametype + " " + smallBlind + "/" + bigBlind;
   }
 
 }

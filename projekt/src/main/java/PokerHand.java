@@ -10,10 +10,7 @@ public class PokerHand {
 
   public String hand;
   public ArrayList<Player> players;
-
-
-  /* info om var/när/vad som spelas. Spelare. Gator(pre,flop,turn,river)
-                                            med tillhörande action */
+  public int potSize;
 
   public PokerHand(String hand){
     this.hand = hand;
@@ -28,9 +25,6 @@ public class PokerHand {
   }
   public ArrayList<Player> players(){
     return players;
-  }
-  public void addPlayer(Player p){
-    players.add(p);
   }
 
 }

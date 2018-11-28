@@ -48,7 +48,7 @@ public class Card {
 
   @Override
   public String toString(){
-    return suit + " " + rank;
+    return rank + " of " + suit + " |";
   }
   /*
   private static final List<Card> prototypeDeck =
