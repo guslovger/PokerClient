@@ -11,7 +11,7 @@ public class TestDatabase {
       Connection conn = null;
       try {
           // db parameters
-          String url = "jdbc:sqlite:lib/Player.sql";
+          String url = "jdbc:sqlite:lib/PokerDatabase.db";
           // create a connection to the database
           conn = DriverManager.getConnection(url);
 
@@ -32,7 +32,7 @@ public class TestDatabase {
 
   private Connection connect2() {
         // SQLite connection string
-        String url = "jdbc:sqlite:lib/Player.sql";
+        String url = "jdbc:sqlite:lib/PokerDatabase.db";
         Connection conn = null;
         try {
             conn = DriverManager.getConnection(url);
@@ -60,8 +60,8 @@ public class TestDatabase {
    */
   public static void main(String[] args) {
       connect();
-      TestDatabase test = new TestDatabase();
-      test.addPlayer(1, "Lucas");
-      test.addPlayer(2, "Erik");
+      //TestDatabase test = new TestDatabase();
+      //test.addPlayer(1, "Lucas");
+      //test.addPlayer(2, "Erik");
   }
 }
