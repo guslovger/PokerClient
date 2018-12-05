@@ -10,7 +10,7 @@ public class Street {
     TURN,
     RIVER
   }
-
+/*
   public enum Action {
     POST,
     CHECK,
@@ -23,13 +23,13 @@ public class Street {
   public void action(Action act){
     switch(act) {
       case POST:
-  /*    if (Player.Position==SB) {
+      if (Player.Position==SB) {
         System.out.println("Player posts HandInfo.smallBlind.");
       } else if (Player.Position==BB) {
         System.out.println("Player posts BB.");
       } else {
-        System.out.println("Player can't post blinds");
-      } */
+        System.out.println("Player doesn't need to post blinds");
+      }
       break;
       case CHECK:
       System.out.println("Player checks.");
@@ -50,7 +50,7 @@ public class Street {
       ;
     }
 
-  }
+  } */
 
 
 

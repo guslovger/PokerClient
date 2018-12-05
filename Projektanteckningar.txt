@@ -35,6 +35,10 @@ på senare gator, även fast dessa kort i verkliga fallets har foldats av en
 annan spelare tidigare under handen. Därför passar null som ett bra värde för
 foldade händer. Annars är Optional ett sätt att lösa detta på.
 
+5/12-18
+Erik - Försöker implementera bettingstruktur från ett pokerprojekt på GitHub men
+det visar sig vara svårare än tänkt. Får se om jag kör vidare på det här eller
+frågar Rikard och Henrik om de har någon bättre lösning?
 
 
 Contribution:
