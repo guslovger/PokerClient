@@ -32,16 +32,25 @@ public class Street {
       }
       break;
       case CHECK:
-      System.out.println("Player checks.");
+      System.out.println(name + " checks");
+      return 0.0;
       break;
       case FOLD:
-      System.out.println("Player folds");
+      System.out.println(name + " folds");
+      players.remove(this);
+      this.bet = 0.0;
+      return 0.0;
       break;
       case BET:
       System.out.println("Player bets x");
       break;
       case CALL:
-      System.out.println("Player calls x");
+      double amount = getHighestBet();
+      this.chips -= amount;
+      this.bet += amount;
+      addPot(amount);
+      System.out.println(name + " calls " + this.bet);
+      return amount;
       break;
       case RAISE:
       System.out.println("Player raises to x");
@@ -52,6 +61,13 @@ public class Street {
 
   } */
 
+  /* Hur man kör street enums typ? Rikard skrev det.
+    public static void main(String[] args) {
+      Street st = new Street();
+      st.action(CHECK);
+      ph.testHand();
+    }
+*/
 
 
 }

@@ -2,6 +2,7 @@ package src.main.resources;
 
 import src.main.resources.Card;
 import java.util.*;
+import src.main.resources.HandInfo;
 
 public class Player {
 
@@ -26,7 +27,7 @@ public class Player {
   private final Card card2;
   private double pot;
 
-  ArrayList<Player> players = new ArrayList<>();
+  public static ArrayList<Player> players = new ArrayList<>();
 
   // No constructor is needed (no-instantiate)
   public Player(Card card1, Card card2){
@@ -47,11 +48,11 @@ public class Player {
   }
 
   public Player(String name, double chips, Position position){
-  this.name = name;
-  this.chips = chips;
-  this.position = position;
-  card1=null;
-  card2=null;
+    this.name = name;
+    this.chips = chips;
+    this.position = position;
+    card1=null;
+    card2=null;
   }
 
   public String name() { return name; }
@@ -62,6 +63,7 @@ public class Player {
   public Position position() { return position; }
   public Card card1() { return card1; }
   public Card card2() { return card2; }
+  public double pot() { return pot; }
 
   public double getPot(){
     return this.pot;
@@ -71,31 +73,49 @@ public class Player {
     this.pot += amount;
   }
 
-  public void clearPot(){
-    this.pot = 0.0;
-  }
-
-  public double getHighestBet()
-  {
+  public double getHighestBet()  {
     double highestAmnt = 0;
     Iterator<Player> playerList = this.players.iterator();
     while (playerList.hasNext())
     {
       Player temp = playerList.next();
-      if( temp.bet() > highestAmnt )
+      if(temp.bet() > highestAmnt)
       highestAmnt = temp.bet();
     }
     return highestAmnt;
   }
 
-  public void getCurrentBets()
-  {
+  public void getCurrentBets()  {
     Iterator<Player> playerList = this.players.iterator();
     while (playerList.hasNext())
     {
       Player temp = playerList.next();
       System.out.println( temp.name() + " Bet " + temp.bet() );
     }
+  }
+
+  public double postSmall(double amount){
+    this.chips -= amount;
+    this.bet += amount;
+    addPot(amount);
+    System.out.println(name + " posts small blind of " + amount);
+    return amount;
+  }
+
+  public double postBig(double amount){
+    this.chips -= amount;
+    this.bet += amount;
+    addPot(amount);
+    System.out.println(name + " posts big blind of " + amount);
+    return amount;
+  }
+
+  public double getRaiseAmount(){
+    // få värdet på raisen så att man sedan kan använda det för att veta hur mycket
+    //värdet på call ska vara?
+    double raiseAmount = 0;
+
+    return raiseAmount;
   }
 
   public double bet(double amount) {
@@ -107,18 +127,22 @@ public class Player {
   }
 
   public double check(){
+    System.out.println(name + " checks");
     return 0.0;
   }
+
 
   public double call(){
     double amount = getHighestBet() - this.bet;
     this.chips -= amount;
     this.bet += amount;
     addPot(amount);
+    System.out.println(name + " calls " + this.bet);
     return amount;
   }
 
   public double fold(){
+    System.out.println(name + " folds");
     players.remove(this);
     this.bet = 0.0;
     return 0.0;
@@ -159,7 +183,8 @@ public boolean card2Folded(){
 
 @Override
 public String toString(){
-  return name + " " + chips + " " + position + " | " + card1 + " " + card2;
+  return name + " " + chips + " " + bet + " " + position + " | " + card1 + " " + card2;
 }
+
 
 }

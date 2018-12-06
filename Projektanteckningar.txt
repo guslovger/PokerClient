@@ -36,7 +36,14 @@ annan spelare tidigare under handen. Därför passar null som ett bra värde fö
 foldade händer. Annars är Optional ett sätt att lösa detta på.
 
 5/12-18
-Erik - Försöker implementera bettingstruktur från ett pokerprojekt på GitHub men
+Erik - I och med att Henrik och Rikard var väldigt upptagna med att hjälpa andra
+grupper så var svårt för oss att ta oss vidare med projektet, vi tog därför hjälp
+av ett projekt på GitHub där några grabbar hade gjort ett pokerspel och använde
+därför ett par metoder från dem i vårat program för att kunna ta projektet framåt.
+Om vi kommer att använda dem i framtiden återstår att se men ville i alla fall
+kunna jobba vidare med något och också ha lite material att kunna disskutera med
+Rickard och Henrik om varför eller hur den här lösningen är bra eller inte.
+Försöker implementera bettingstruktur från pokerprojektet men
 det visar sig vara svårare än tänkt. Får se om jag kör vidare på det här eller
 frågar Rikard och Henrik om de har någon bättre lösning? Lyckades kompilera filerna
 efter många om och men, men kommer förmodligen vara tvungen att skapa lite nya
@@ -45,6 +52,20 @@ kompilera, lär göra en Action class senare och flytta någon variabel möjligt
 
 
 6/12-18
+Erik - Lyckats få testklassen att skriva ut allting förutom hela potten nu iaf. Ett litet
+fel är dock att call() metoden är lite vrickad och synar för mycket än vad den ska
+så det får kollas mer på senare. Hade egentligen tänkt att sitta med hjälp från
+Rikard och Henrik någon timme men de satt i möte så vi hann bara få hjälp att lösa
+ett litet problem i testklassen. Men nu går det i stort sett att testa hela programmet,
+måste bara lösa ett par smågrejer som att flytta bort alla metoder från Player klassen
+då jag inte tror att de borde ligga där sen, la de bara där tillfälligt för att det
+skulle vara lättare att få det att fungera. Har ett par små problem kvar som också
+måste lösas med hjälp av Rikard och Henrik imorgon helst eftersom jag är bortrest
+större delen av nästa vecka.
+Saker att fråga Rikard och Henrik: Hur skriver jag ut total pot?
+                                   Varför synar spelarna för mycket?
+                                   Tips på struktur på klasser? Ha en action klass bara?
+                                   
 
 
 Contribution:
