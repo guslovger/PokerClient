@@ -85,20 +85,7 @@ public class TestDatabase {
         }
         return conn;
     }
-/*
-  public void addPlayer(int id, String name){
-    String sql = "INSERT INTO player(ID,NAME) VALUES(?,?)";
-
-    try (Connection conn = this.connect2();
-                PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setInt(1, id);
-            pstmt.setString(2, name);
-            pstmt.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-
-  }/*
+/
   /**
    * @param args the command line arguments
    */
