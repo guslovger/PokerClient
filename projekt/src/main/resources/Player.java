@@ -22,13 +22,13 @@ public class Player {
   private double chips;
   protected double bet;
   private Position position;
-  protected final Card card1;
+  private final Card card1;
   private final Card card2;
   private double pot;
 
   ArrayList<Player> players = new ArrayList<>();
 
-
+  // No constructor is needed (no-instantiate)
   public Player(Card card1, Card card2){
     this.name = "";
     this.chips = 0;
@@ -40,6 +40,7 @@ public class Player {
   public Player(String name, double chips, Position position, Card card1, Card card2){
     this.name = name;
     this.chips = chips;
+    this.position = position;
     this.bet = 0;
     this.card1 = card1;
     this.card2 = card2;

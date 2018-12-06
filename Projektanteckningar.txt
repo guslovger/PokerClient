@@ -38,7 +38,13 @@ foldade händer. Annars är Optional ett sätt att lösa detta på.
 5/12-18
 Erik - Försöker implementera bettingstruktur från ett pokerprojekt på GitHub men
 det visar sig vara svårare än tänkt. Får se om jag kör vidare på det här eller
-frågar Rikard och Henrik om de har någon bättre lösning?
+frågar Rikard och Henrik om de har någon bättre lösning? Lyckades kompilera filerna
+efter många om och men, men kommer förmodligen vara tvungen att skapa lite nya
+klasser då jag temporärt la de flesta metoderna i Player bara för att få det att
+kompilera, lär göra en Action class senare och flytta någon variabel möjligtvis.
+
+
+6/12-18
 
 
 Contribution:

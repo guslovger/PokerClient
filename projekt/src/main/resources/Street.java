@@ -23,9 +23,9 @@ public class Street {
   public void action(Action act){
     switch(act) {
       case POST:
-      if (Player.Position==SB) {
+      if (Player.Position==Player.Position.SB) {
         System.out.println("Player posts HandInfo.smallBlind.");
-      } else if (Player.Position==BB) {
+      } else if (Player.Position==Player.Position.BB) {
         System.out.println("Player posts BB.");
       } else {
         System.out.println("Player doesn't need to post blinds");

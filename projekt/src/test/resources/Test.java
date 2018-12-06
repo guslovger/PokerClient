@@ -23,7 +23,8 @@ public class Test {
     new Card(Card.Suit.HEARTS,Card.Rank.SIX), new Card(Card.Suit.SPADES,Card.Rank.SIX));
     Player p2 = new Player("Frans",1600,Player.Position.BB,
     new Card(Card.Suit.DIAMONDS,Card.Rank.FIVE), new Card(Card.Suit.CLUBS,Card.Rank.FIVE));
-    Player p3 = new Player("Player 3",1950,Player.Position.HJ);
+    Player p3 = new Player("Player 3",1860,Player.Position.HJ, new Card(Card.Suit.CLUBS,Card.Rank.KING),
+     new Card(Card.Suit.CLUBS,Card.Rank.QUEEN));
     Player p4 = new Player("HERO",1500,Player.Position.CO,
     new Card(Card.Suit.HEARTS,Card.Rank.JACK), new Card(Card.Suit.HEARTS,Card.Rank.TEN));
     Player p5 = new Player("Player 5",1000,Player.Position.BUT);
