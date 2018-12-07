@@ -67,7 +67,17 @@ Saker att fråga Rikard och Henrik: Hur skriver jag ut total pot?
                                    Tips på struktur på klasser? Ha en action klass bara?
 
 7/12-18
-
+I väntan av att få hjälp av Henrik och Rikard snackade vi om våra problem med
+Johannes och vi lyckades tillsammans lösa hur man skriver ut pot samt varför
+spelarna synade för mycket (till viss del). När vi sedan fick hjälp av Rikard så
+svarade han på både synfrågan och struktur frågan samtidigt, det blir helt enkelt
+för jobbigt att ha alla metoder och alla listor i player klassen, så vi ska nu
+strukturera om lite och göra Player "dummare".
+Vi har nu flyttat alla metoder från Player till Street och skapat en pay() metod
+i player som används för att dra bort pengar från spelarens stack. Vi har också fått
+hela Street klassen att kompilera men orkar inte jobba mer nu så tar helg och
+fortsätter på detta på måndag. Nästa steg är att kunna skapa streets som spelarna
+sedan kan göra actions på.
 
 
 

@@ -5,16 +5,18 @@ import src.main.java.PokerHand;
 import src.main.resources.Player;
 import src.main.resources.Card;
 import src.main.resources.HandInfo;
+import src.main.resources.Street;
 
 public class Test {
 
   public static void main(String[] args) {
 
     HandInfo hi = new HandInfo("CC GBG", "Cashgame", 10,10 );
-    System.out.println(); //empty line for clarity in terminal
+    System.out.println(); //empty line for clarity in terminal during tests
     System.out.println(hi.toString());
 
     ArrayList<Player> players = new ArrayList<>();
+    Street pf = new Street(PREFLOP); ????????????????????++
 
     Player p1 = new Player("Max",2000,Player.Position.SB,
     new Card(Card.Suit.HEARTS,Card.Rank.SIX), new Card(Card.Suit.SPADES,Card.Rank.SIX));
@@ -31,7 +33,7 @@ public class Test {
     players.add(p4);
     players.add(p5);
 
-    Player.players = players;
+    Street.players = players;
 
     for (Player p : players) {
       System.out.println(p);
@@ -48,9 +50,6 @@ public class Test {
     p5.fold();
     p1.call();
     p2.call();
-    //Player.getPot();
-  //  Player.pot();
-
 
     ArrayList<Card> communityCards = new ArrayList<>();
     Card c1 = new Card(Card.Suit.HEARTS,Card.Rank.ACE);
@@ -62,6 +61,7 @@ public class Test {
     communityCards.add(c3);
 
     System.out.println("================================");
+    System.out.println("Current pot: " + Street.printPot());
     System.out.println("Flop is dealt");
     for (Card c : communityCards){
       System.out.println(c);
@@ -69,14 +69,16 @@ public class Test {
     System.out.println("================================");
 
     p1.check();
-    p2.bet(300);
+    st.bet(p2,300);
     p4.call();
     p1.fold();
+
 
     Card c4 = new Card(Card.Suit.SPADES,Card.Rank.KING);
     communityCards.add(c4);
 
     System.out.println("================================");
+    System.out.println("Current pot: " + Street.printPot());
     System.out.println("Turn is dealt");
     for (Card c : communityCards){
       System.out.println(c);
@@ -90,6 +92,7 @@ public class Test {
     communityCards.add(c5);
 
     System.out.println("================================");
+    System.out.println("Current pot: " + Street.printPot());
     System.out.println("River is dealt");
     for (Card c : communityCards){
       System.out.println(c);
@@ -99,9 +102,6 @@ public class Test {
     p2.check();
     p4.allin();
     p2.call();
-
-
-
 
   }
 

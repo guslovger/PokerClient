@@ -3,6 +3,7 @@ package src.main.resources;
 import src.main.resources.Card;
 import java.util.*;
 import src.main.resources.HandInfo;
+import src.main.resources.Street;
 
 public class Player {
 
@@ -19,162 +20,37 @@ public class Player {
     BUT;
   }
 
-  private final String name;
-  private double chips;
+  private static String name;
+  private double stack;
   protected double bet;
   private Position position;
   private final Card card1;
   private final Card card2;
-  private double pot;
 
-  public static ArrayList<Player> players = new ArrayList<>();
-
-  // No constructor is needed (no-instantiate)
-  public Player(Card card1, Card card2){
-    this.name = "";
-    this.chips = 0;
-    this.bet = 0;
-    this.card1 = card1;
-    this.card2 = card2;
-  }
-
-  public Player(String name, double chips, Position position, Card card1, Card card2){
+  public Player(String name, double stack, Position position, Card card1, Card card2){
     this.name = name;
-    this.chips = chips;
+    this.stack = stack;
     this.position = position;
     this.bet = 0;
     this.card1 = card1;
     this.card2 = card2;
   }
 
-  public Player(String name, double chips, Position position){
+  public Player(String name, double stack, Position position){
     this.name = name;
-    this.chips = chips;
+    this.stack = stack;
     this.bet = 0;
     this.position = position;
     card1=null;
     card2=null;
   }
 
-  public String name() { return name; }
-  public double chips() { return chips; }
-  public void setChips(double chips) { this.chips = chips; }
+  public static String name() { return name; }
+  public double stack() { return stack; }
   public double bet() { return bet; }
-  public void setBet(double amount) { this.bet = amount; }
   public Position position() { return position; }
   public Card card1() { return card1; }
   public Card card2() { return card2; }
-  public double pot() { return pot; }
-
-  public double getPot(){
-    return this.pot;
-  }
-
-  public void addPot(double amount){
-    this.pot += amount;
-  }
-
-  public void getCurrentBets()  {
-    Iterator<Player> playerList = this.players.iterator();
-    while (playerList.hasNext())
-    {
-      Player temp = playerList.next();
-      System.out.println( temp.name() + " Bet " + temp.bet() );
-    }
-  }
-
-  public double postSmall(double amount){
-    this.chips -= amount;
-    this.bet += amount;
-    addPot(amount);
-    System.out.println(name + " posts small blind of " + amount);
-    return amount;
-  }
-
-  public double postBig(double amount){
-    this.chips -= amount;
-    this.bet += amount;
-    addPot(amount);
-    System.out.println(name + " posts big blind of " + amount);
-    return amount;
-  }
-
-  public double getRaiseAmount(){
-    // få värdet på raisen så att man sedan kan använda det för att veta hur mycket
-    //värdet på call ska vara?
-    double raiseAmount = 0;
-
-    return raiseAmount;
-  }
-
-    public double getHighestBet()  {
-      double highestAmnt = 0;
-      Iterator<Player> playerList = this.players.iterator();
-      while (playerList.hasNext())
-      {
-        Player temp = playerList.next();
-        if(temp.bet() > highestAmnt)
-        highestAmnt = temp.bet();
-      }
-      return highestAmnt;
-    }
-
-  public double bet(double amount) {
-    this.chips -= amount;
-    this.bet += amount;
-    addPot(amount);
-    System.out.println(name + " bets " + amount);
-    return amount;
-  }
-
-  public double check(){
-    System.out.println(name + " checks");
-    return 0.0;
-  }
-
-
-  public double call(){
-    double amount = getHighestBet() - this.bet;
-    this.chips -= amount;
-    this.bet += amount;
-    addPot(amount);
-    System.out.println(name + " calls " + this.bet);
-    return amount;
-  }
-
-  public double fold(){
-    System.out.println(name + " folds");
-    players.remove(this);
-    this.bet = 0.0;
-    return 0.0;
-  }
-
-  public boolean raise(double amount){
-    if( (amount + this.bet) > getHighestBet() ){
-      System.out.println(name + " raises to " + amount);
-      bet(amount);
-      return true;
-    } else return false;
-  }
-
-  public void allin(){
-    System.out.println(name + " is all in!");
-    bet(this.chips);
-  }
-
-  public void winPot(double amount){
-    this.chips += amount;
-  }
-
-
-  /*
-  public Player(String name, double chips, Position position, Card card1, Card card2){
-  this.name = name;
-  this.chips = chips;
-  this.position = position;
-  this.card1 = card1;
-  this.card2 = card2;
-} */
 
 public boolean card1Folded(){
   return !(card1==null);
@@ -185,8 +61,76 @@ public boolean card2Folded(){
 
 @Override
 public String toString(){
-  return name + " " + chips + " " + bet + " " + position + " | " + card1 + " " + card2;
+  return name + " " + stack + " " + bet + " " + position + " | " + card1 + " " + card2;
+}
+
+public double pay(double amount) {
+  this.stack -= amount;
+  return amount;
+}
+
+/*
+public double postSmall(double amount){
+  this.chips -= amount;
+  this.bet += amount;
+  addPot(amount);
+  System.out.println(name + " posts small blind of " + amount);
+  return amount;
+}
+
+public double postBig(double amount){
+  this.chips -= amount;
+  this.bet += amount;
+  addPot(amount);
+  System.out.println(name + " posts big blind of " + amount);
+  return amount;
 }
 
 
+public double check(){
+  System.out.println(name + " checks");
+  return 0.0;
 }
+
+public double call(){
+  double amount = getHighestBet() - this.bet;
+  this.chips -= amount;
+  this.bet += amount;
+  addPot(this.bet);
+  System.out.println(name + " calls " + this.bet);
+  return amount;
+}
+
+public double fold(){
+  System.out.println(name + " folds");
+  players.remove(this);
+  this.bet = 0.0;
+  return 0.0;
+}
+
+public boolean raise(double amount){
+  if( (amount + this.bet) > getHighestBet() ){
+    System.out.println(name + " raises to " + amount);
+    bet(amount);
+    return true;
+  } else return false;
+}
+
+public void allin(){
+  System.out.println(name + " is all in!");
+  bet(this.chips);
+}
+
+public void addPot(double amount){
+  this.pot += amount;
+}
+ */
+}
+// No constructor is needed (no-instantiate)
+/*public Player(Card card1, Card card2){
+  this.name = "";
+  this.chips = 0;
+  this.bet = 0;
+  this.card1 = card1;
+  this.card2 = card2;
+} */
