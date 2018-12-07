@@ -50,6 +50,7 @@ public class Player {
   public Player(String name, double chips, Position position){
     this.name = name;
     this.chips = chips;
+    this.bet = 0;
     this.position = position;
     card1=null;
     card2=null;
@@ -71,18 +72,6 @@ public class Player {
 
   public void addPot(double amount){
     this.pot += amount;
-  }
-
-  public double getHighestBet()  {
-    double highestAmnt = 0;
-    Iterator<Player> playerList = this.players.iterator();
-    while (playerList.hasNext())
-    {
-      Player temp = playerList.next();
-      if(temp.bet() > highestAmnt)
-      highestAmnt = temp.bet();
-    }
-    return highestAmnt;
   }
 
   public void getCurrentBets()  {
@@ -117,6 +106,18 @@ public class Player {
 
     return raiseAmount;
   }
+
+    public double getHighestBet()  {
+      double highestAmnt = 0;
+      Iterator<Player> playerList = this.players.iterator();
+      while (playerList.hasNext())
+      {
+        Player temp = playerList.next();
+        if(temp.bet() > highestAmnt)
+        highestAmnt = temp.bet();
+      }
+      return highestAmnt;
+    }
 
   public double bet(double amount) {
     this.chips -= amount;
@@ -157,6 +158,7 @@ public class Player {
   }
 
   public void allin(){
+    System.out.println(name + " is all in!");
     bet(this.chips);
   }
 

@@ -51,7 +51,7 @@ public class Card {
     return rank + " of " + suit + " |";
   }
 
-  
+
   /*
   private static final List<Card> prototypeDeck =
   new ArrayList<Card>(52);

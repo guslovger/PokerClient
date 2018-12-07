@@ -69,11 +69,9 @@ public class Test {
     System.out.println("================================");
 
     p1.check();
-    p2.check();
-    p4.bet(100);
-    p1.fold();
-    p2.raise(350);
+    p2.bet(300);
     p4.call();
+    p1.fold();
 
     Card c4 = new Card(Card.Suit.SPADES,Card.Rank.KING);
     communityCards.add(c4);
@@ -98,9 +96,9 @@ public class Test {
     }
     System.out.println("================================");
 
-    p2.allin();
-    p4.call();
-
+    p2.check();
+    p4.allin();
+    p2.call();
 
 
 

@@ -65,7 +65,10 @@ större delen av nästa vecka.
 Saker att fråga Rikard och Henrik: Hur skriver jag ut total pot?
                                    Varför synar spelarna för mycket?
                                    Tips på struktur på klasser? Ha en action klass bara?
-                                   
+
+7/12-18
+
+
 
 
 Contribution:
