@@ -51,10 +51,6 @@ public class Test {
     pf.fold(p5);
     pf.call(p1);
     pf.call(p2);
-    System.out.println("Current pot: " + Street.printPot());
-    for (Player p : players) {
-      System.out.println(p);
-    }
 
     ArrayList<Card> communityCards = new ArrayList<>();
     Card c1 = new Card(Card.Suit.HEARTS,Card.Rank.ACE);
@@ -65,53 +61,72 @@ public class Test {
     communityCards.add(c2);
     communityCards.add(c3);
 
-    System.out.println("================================");
+    System.out.println("--------------------------------");
     System.out.println("Current pot: " + Street.printPot());
+    for (Player p : players) {
+      System.out.println(p);
+    }
+    System.out.println("--------------------------------");
     System.out.println("Flop is dealt");
     for (Card c : communityCards){
     System.out.println(c);
     }
     System.out.println("================================");
 
-    Street f = new Street(Street.Streets.FLOP,)
+    Street f = new Street(Street.Streets.FLOP,150,players);
 
-    /*
+    f.check(p1);
+    f.check(p2);
+    f.bet(p4,100);
+    f.fold(p1);
+    f.raise(p2,350);
+    f.call(p4);
 
-  p1.check();
-  st.bet(p2,300);
-  p4.call();
-  p1.fold();
+    Card c4 = new Card(Card.Suit.SPADES,Card.Rank.KING);
+    communityCards.add(c4);
 
+    System.out.println("--------------------------------");
+    System.out.println("Current pot: " + Street.printPot());
+    for (Player p : players) {
+      System.out.println(p);
+    }
+    System.out.println("--------------------------------");
+      System.out.println("Turn is dealt");
+      for (Card c : communityCards){
+      System.out.println(c);
+    }
+    System.out.println("================================");
 
-  Card c4 = new Card(Card.Suit.SPADES,Card.Rank.KING);
-  communityCards.add(c4);
+    Street t = new Street(Street.Streets.TURN,850,players);
 
-  System.out.println("================================");
-  System.out.println("Current pot: " + Street.printPot());
-  System.out.println("Turn is dealt");
-  for (Card c : communityCards){
-  System.out.println(c);
-}
-System.out.println("================================");
+    t.bet(p2,500);
+    t.call(p4);
 
-p2.bet(500);
-p4.call();
+    Card c5 = new Card(Card.Suit.HEARTS,Card.Rank.EIGHT);
+    communityCards.add(c5);
 
-Card c5 = new Card(Card.Suit.HEARTS,Card.Rank.FOUR);
-communityCards.add(c5);
+    System.out.println("--------------------------------");
+    System.out.println("Current pot: " + Street.printPot());
+    for (Player p : players) {
+      System.out.println(p);
+    }
+    System.out.println("--------------------------------");
+    System.out.println("River is dealt");
+    for (Card c : communityCards){
+    System.out.println(c);
+    }
+    System.out.println("================================");
 
-System.out.println("================================");
-System.out.println("Current pot: " + Street.printPot());
-System.out.println("River is dealt");
-for (Card c : communityCards){
-System.out.println(c);
-}
-System.out.println("================================");
+    Street r = new Street(Street.Streets.RIVER,1850,players);
 
-p2.check();
-p4.allin();
-p2.call();
-*/
+    r.check(p2);
+    r.allin(p4);
+    r.call(p2);
+    System.out.println("================================");
+    System.out.println("Current pot: " + Street.printPot());
+    for (Player p : players) {
+      System.out.println(p);
+    }
 }
 
 }

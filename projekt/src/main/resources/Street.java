@@ -44,7 +44,7 @@ public class Street {
     player.pay(amount);
     this.bet = amount;
     addPot(amount);
-    System.out.println(player.name() + " posts small blind of " + amount);
+    System.out.println("(" + player.position() + ")" + player.name() + " posts small blind of " + amount);
     return amount;
   }
 
@@ -52,7 +52,7 @@ public class Street {
     player.pay(amount);
     this.bet = amount;
     addPot(amount);
-    System.out.println(player.name() + " posts big blind of " + amount);
+    System.out.println("(" + player.position() + ")" + player.name() + " posts big blind of " + amount);
     return amount;
   }
 
@@ -72,20 +72,18 @@ public class Street {
     this.bet = amount - bet;
     player.pay(amount);
     addPot(amount);
-    System.out.println(player.name() + " bets " + amount);
-    System.out.println("Inside bet(), bet: " + bet);
+    System.out.println("(" + player.position() + ")" + player.name() + " bets " + amount);
 
     return amount;
   }
 
   public double check(Player player){
-    System.out.println(player.name() + " checks");
+    System.out.println("(" + player.position() + ")" + player.name() + " checks");
     return 0.0;
   }
 
   public double call(Player player){
     double amount = 0.0;
-    System.out.println("Inside cal(), bet: " + bet);
     if (player.stack() >= bet) { // player has more than last bet
       player.pay(bet);
       amount = bet;
@@ -93,20 +91,19 @@ public class Street {
       amount = player.stack();
       player.pay(player.stack());
     }
-    //this.bet += amount;
     addPot(amount);
-    System.out.println(player.name() + " calls " + amount);
+    System.out.println("(" + player.position() + ")" + player.name() + " calls " + amount);
     return amount;
   }
 
   public void fold(Player player){
-    System.out.println(player.name() + " folds");
+    System.out.println("(" + player.position() + ")" + player.name() + " folds");
     players.remove(player);
   }
 
   public boolean raise(Player player, double amount){
     if( (amount - bet) >= bet ){
-      System.out.println(player.name() + " raises to " + amount);
+      System.out.println("(" + player.position() + ")" + player.name() + " raises");
       bet(player, amount);
       return true;
     } else {
@@ -116,8 +113,11 @@ public class Street {
   }
 
   public void allin(Player player){
-    System.out.println(player.name() + " is all in!");
-    bet(player, this.stack);
+    double amount = 0.0;
+    System.out.println("(" + player.position() + ")" + player.name() + " is all in!");
+    amount = player.stack();
+    bet(player, amount);
+    player.pay(player.stack());
   }
 
 
