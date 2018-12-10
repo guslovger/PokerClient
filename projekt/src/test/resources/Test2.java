@@ -39,7 +39,6 @@ public class Test2 {
 
     Street pf = new Street(Street.Streets.PREFLOP,Street.pot(),players);
 
-
     System.out.println("================================");
     System.out.println("Hand begins!");
     System.out.println("================================");
@@ -51,7 +50,7 @@ public class Test2 {
     pf.call(p4);
     pf.call(p5);
     pf.raise(p6,56);
-    pf.fold(p1);
+    pf.call(p1);
     pf.call(p2);
     pf.call(p3);
     pf.fold(p4);
@@ -67,7 +66,7 @@ public class Test2 {
     communityCards.add(c3);
 
     System.out.println("--------------------------------");
-    System.out.println("Current pot: " + Street.printPot());
+    System.out.println("Current pot: " + Street.pot());
     for (Player p : players) {
       System.out.println(p);
     }
@@ -81,16 +80,16 @@ public class Test2 {
     Street f = new Street(Street.Streets.FLOP,Street.pot(),players);
 
     f.allin(p2);
-    f.call(p4);
+    f.call(p3);
     f.fold(p5);
     f.allin(p6);
-    f.fold(p4);
+    f.fold(p3);
 
     Card c4 = new Card(Card.Suit.CLUBS,Card.Rank.JACK);
     communityCards.add(c4);
 
     System.out.println("--------------------------------");
-    System.out.println("Current pot: " + Street.printPot());
+    System.out.println("Current pot: " + Street.pot());
     for (Player p : players) {
       System.out.println(p);
     }
@@ -107,7 +106,7 @@ public class Test2 {
     communityCards.add(c5);
 
     System.out.println("--------------------------------");
-    System.out.println("Current pot: " + Street.printPot());
+    System.out.println("Current pot: " + Street.pot());
     for (Player p : players) {
       System.out.println(p);
     }
@@ -121,7 +120,7 @@ public class Test2 {
     Street r = new Street(Street.Streets.RIVER,Street.pot(),players);
 
     System.out.println("================================");
-    System.out.println("Current pot: " + Street.printPot());
+    System.out.println("Current pot: " + Street.pot());
     for (Player p : players) {
       System.out.println(p);
     }

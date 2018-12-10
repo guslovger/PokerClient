@@ -23,6 +23,7 @@ public class Player {
   private String name;
   private double stack;
   protected double bet;
+  public double prevBet;
   private Position position;
   private final Card card1;
   private final Card card2;
@@ -32,6 +33,7 @@ public class Player {
     this.stack = stack;
     this.position = position;
     this.bet = 0;
+    this.prevBet = 0;
     this.card1 = card1;
     this.card2 = card2;
   }
@@ -40,6 +42,7 @@ public class Player {
     this.name = name;
     this.stack = stack;
     this.bet = 0;
+    this.prevBet = 0;
     this.position = position;
     card1=null;
     card2=null;
@@ -48,6 +51,11 @@ public class Player {
   public String name() { return name; }
   public double stack() { return stack; }
   public double bet() { return bet; }
+  public double prevBet() { return prevBet; }
+  public void resetPrevBet() {
+    this.prevBet = 0;
+  }
+
   public Position position() { return position; }
   public Card card1() { return card1; }
   public Card card2() { return card2; }
