@@ -16,16 +16,15 @@ public class Test {
     System.out.println(hi.toString());
 
     ArrayList<Player> players = new ArrayList<>();
-    Street pf = new Street(PREFLOP); ????????????????????++
 
     Player p1 = new Player("Max",2000,Player.Position.SB,
     new Card(Card.Suit.HEARTS,Card.Rank.SIX), new Card(Card.Suit.SPADES,Card.Rank.SIX));
-    Player p2 = new Player("Frans",1600,Player.Position.BB,
+    Player p2 = new Player("Frans",2000,Player.Position.BB,
     new Card(Card.Suit.DIAMONDS,Card.Rank.FIVE), new Card(Card.Suit.CLUBS,Card.Rank.FIVE));
-    Player p3 = new Player("Player 3",1860,Player.Position.HJ);
-    Player p4 = new Player("HERO",1500,Player.Position.CO,
+    Player p3 = new Player("Player 3",2000,Player.Position.HJ);
+    Player p4 = new Player("HERO",2000,Player.Position.CO,
     new Card(Card.Suit.HEARTS,Card.Rank.JACK), new Card(Card.Suit.HEARTS,Card.Rank.TEN));
-    Player p5 = new Player("Player 5",1000,Player.Position.BUT);
+    Player p5 = new Player("Player 5",2000,Player.Position.BUT);
 
     players.add(p1);
     players.add(p2);
@@ -33,23 +32,29 @@ public class Test {
     players.add(p4);
     players.add(p5);
 
-    Street.players = players;
-
     for (Player p : players) {
       System.out.println(p);
     }
+
+    Street pf = new Street(Street.Streets.PREFLOP,0,players);
+
 
     System.out.println("================================");
     System.out.println("Hand begins!");
     System.out.println("================================");
 
-    p1.postSmall(10);
-    p2.postBig(10);
-    p3.fold();
-    p4.raise(50);
-    p5.fold();
-    p1.call();
-    p2.call();
+
+    pf.postSmall(p1,10);
+    pf.postBig(p2,10);
+    pf.fold(p3);
+    pf.raise(p4,50);
+    pf.fold(p5);
+    pf.call(p1);
+    pf.call(p2);
+    System.out.println("Current pot: " + Street.printPot());
+    for (Player p : players) {
+      System.out.println(p);
+    }
 
     ArrayList<Card> communityCards = new ArrayList<>();
     Card c1 = new Card(Card.Suit.HEARTS,Card.Rank.ACE);
@@ -64,45 +69,49 @@ public class Test {
     System.out.println("Current pot: " + Street.printPot());
     System.out.println("Flop is dealt");
     for (Card c : communityCards){
-      System.out.println(c);
+    System.out.println(c);
     }
     System.out.println("================================");
 
-    p1.check();
-    st.bet(p2,300);
-    p4.call();
-    p1.fold();
+    Street f = new Street(Street.Streets.FLOP,)
+
+    /*
+
+  p1.check();
+  st.bet(p2,300);
+  p4.call();
+  p1.fold();
 
 
-    Card c4 = new Card(Card.Suit.SPADES,Card.Rank.KING);
-    communityCards.add(c4);
+  Card c4 = new Card(Card.Suit.SPADES,Card.Rank.KING);
+  communityCards.add(c4);
 
-    System.out.println("================================");
-    System.out.println("Current pot: " + Street.printPot());
-    System.out.println("Turn is dealt");
-    for (Card c : communityCards){
-      System.out.println(c);
-    }
-    System.out.println("================================");
+  System.out.println("================================");
+  System.out.println("Current pot: " + Street.printPot());
+  System.out.println("Turn is dealt");
+  for (Card c : communityCards){
+  System.out.println(c);
+}
+System.out.println("================================");
 
-    p2.bet(500);
-    p4.call();
+p2.bet(500);
+p4.call();
 
-    Card c5 = new Card(Card.Suit.HEARTS,Card.Rank.FOUR);
-    communityCards.add(c5);
+Card c5 = new Card(Card.Suit.HEARTS,Card.Rank.FOUR);
+communityCards.add(c5);
 
-    System.out.println("================================");
-    System.out.println("Current pot: " + Street.printPot());
-    System.out.println("River is dealt");
-    for (Card c : communityCards){
-      System.out.println(c);
-    }
-    System.out.println("================================");
+System.out.println("================================");
+System.out.println("Current pot: " + Street.printPot());
+System.out.println("River is dealt");
+for (Card c : communityCards){
+System.out.println(c);
+}
+System.out.println("================================");
 
-    p2.check();
-    p4.allin();
-    p2.call();
-
-  }
+p2.check();
+p4.allin();
+p2.call();
+*/
+}
 
 }

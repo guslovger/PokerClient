@@ -10,12 +10,19 @@ public class Street {
   public static ArrayList<Player> players = new ArrayList<>();
   protected double bet;
   protected double stack;
+  private Streets streets;
 
   public enum Streets {
     PREFLOP,
     FLOP,
     TURN,
-    RIVER
+    RIVER;
+  }
+
+  public Street(Streets streets, double pot, ArrayList<Player> players){
+    this.streets = streets;
+    this.pot = pot;
+    this.players = players;
   }
 
   public static double printPot(){ return pot; }
@@ -28,24 +35,24 @@ public class Street {
     Iterator<Player> playerList = this.players.iterator();
     while (playerList.hasNext())
     {
-      Player temp = playerList.next();
-      System.out.println( temp.name() + " Bet " + temp.bet() );
+      Player p = playerList.next();
+      System.out.println( p.name() + " Bet " + p.bet() );
     }
   }
 
   public double postSmall(Player player, double amount){
-    this.stack -= amount;
-    this.bet += amount;
+    player.pay(amount);
+    this.bet = amount;
     addPot(amount);
-    System.out.println(Player.name() + " posts small blind of " + amount);
+    System.out.println(player.name() + " posts small blind of " + amount);
     return amount;
   }
 
   public double postBig(Player player, double amount){
-    this.stack -= amount;
-    this.bet += amount;
+    player.pay(amount);
+    this.bet = amount;
     addPot(amount);
-    System.out.println(Player.name() + " posts big blind of " + amount);
+    System.out.println(player.name() + " posts big blind of " + amount);
     return amount;
   }
 
@@ -62,44 +69,54 @@ public class Street {
   }
 
   public double bet(Player player,double amount) {
-    this.bet = 0;
+    this.bet = amount - bet;
     player.pay(amount);
     addPot(amount);
-    System.out.println(Player.name() + " bets " + amount);
+    System.out.println(player.name() + " bets " + amount);
+    System.out.println("Inside bet(), bet: " + bet);
+
     return amount;
   }
 
-  public double check(){
-    System.out.println(Player.name() + " checks");
+  public double check(Player player){
+    System.out.println(player.name() + " checks");
     return 0.0;
   }
 
-  public double call(){
-    double amount = getHighestBet() - this.bet;
-    this.stack -= amount;
-    this.bet += amount;
-    addPot(this.bet);
-    System.out.println(Player.name() + " calls " + this.bet);
+  public double call(Player player){
+    double amount = 0.0;
+    System.out.println("Inside cal(), bet: " + bet);
+    if (player.stack() >= bet) { // player has more than last bet
+      player.pay(bet);
+      amount = bet;
+    } else if (player.stack() < bet) { // player has less than bet
+      amount = player.stack();
+      player.pay(player.stack());
+    }
+    //this.bet += amount;
+    addPot(amount);
+    System.out.println(player.name() + " calls " + amount);
     return amount;
   }
 
-  public double fold(){
-    System.out.println(Player.name() + " folds");
-    players.remove(this);
-    this.bet = 0.0;
-    return 0.0;
+  public void fold(Player player){
+    System.out.println(player.name() + " folds");
+    players.remove(player);
   }
 
   public boolean raise(Player player, double amount){
-    if( (amount + this.bet) > getHighestBet() ){
-      System.out.println(Player.name() + " raises to " + amount);
+    if( (amount - bet) >= bet ){
+      System.out.println(player.name() + " raises to " + amount);
       bet(player, amount);
       return true;
-    } else return false;
+    } else {
+      System.err.println("Illegal raise size: " + amount + " bet was: " + bet);
+      return false;
+    }
   }
 
   public void allin(Player player){
-    System.out.println(Player.name() + " is all in!");
+    System.out.println(player.name() + " is all in!");
     bet(player, this.stack);
   }
 
