@@ -36,7 +36,7 @@ public class Test {
       System.out.println(p);
     }
 
-    Street pf = new Street(Street.Streets.PREFLOP,0,players);
+    Street pf = new Street(Street.Streets.PREFLOP,Street.pot(),players);
 
 
     System.out.println("================================");
@@ -73,7 +73,7 @@ public class Test {
     }
     System.out.println("================================");
 
-    Street f = new Street(Street.Streets.FLOP,150,players);
+    Street f = new Street(Street.Streets.FLOP,Street.pot(),players);
 
     f.check(p1);
     f.check(p2);
@@ -117,7 +117,7 @@ public class Test {
     }
     System.out.println("================================");
 
-    Street r = new Street(Street.Streets.RIVER,1850,players);
+    Street r = new Street(Street.Streets.RIVER,Street.pot(),players);
 
     r.check(p2);
     r.allin(p4);

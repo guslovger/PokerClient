@@ -25,6 +25,10 @@ public class Street {
     this.players = players;
   }
 
+  public static double pot(){
+    return pot;
+  }
+
   public static double printPot(){ return pot; }
 
   public void addPot(double amount){
