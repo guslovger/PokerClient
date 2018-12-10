@@ -61,7 +61,7 @@ public class Player {
 
   @Override
   public String toString(){
-    return name + " " + stack + " " + position + " | " + card1 + " " + card2;
+    return "(" + position + ")" + name + " " + stack + " " + " | " + card1 + " " + card2;
   }
 
   public double pay(double amount) {

@@ -19,20 +19,20 @@ en sak kan testas i taget.
 
 26/11-18
 Vi stötte på ett intressant problem vid korten som ges spelarna. Vi gjorde en
-kontruktur för spelarna som kommer till showdown, alltså att man ser vila
+konstruktur för spelarna som kommer till showdown, alltså att man ser vilka
 kort de har, och en konstruktor för alla spelare som foldar, alltså en vanlig
 player konstruktor fast utan card1 och card2. Men för att hålla variablerna
 static final så måste vi instansiera card1 och card2 i konstruktorn trots
 att man inte vet vilka kort de hade. Då diskuterade jag, Henrik och Rikard
 om man skulle ge dem värdet null, eller om man skulle ge dem något annat
-värde, t.ex. en String vid namn Unknown eller liknande. Vi kom i alla fall fram
+värde, t.ex. en String vid namn Unknown eller använda Optional. Vi kom i alla fall fram
 till att vi börjar med att ge den null och skapar card1/2Folded() metoder
 som kan användas för att se om kortet är foldat eller inte. Om vi stöter
 på problem med detta framöver så får vi ändra det då.
-När man spelar poker och försöker beräkna odds e i en hand, så utgår
+När man spelar poker och försöker beräkna odds i en hand, så utgår
 man ifrån att alla kort som inte syns finns kvar i kortleken och kan delas ut
 på senare gator, även fast dessa kort i verkliga fallets har foldats av en
-annan spelare tidigare under handen. Därför passar null som ett bra värde för
+annan spelare tidigare under handen. Därför passar null som ett perfekt värde för
 foldade händer. Annars är Optional ett sätt att lösa detta på.
 
 5/12-18
@@ -62,9 +62,6 @@ då jag inte tror att de borde ligga där sen, la de bara där tillfälligt för
 skulle vara lättare att få det att fungera. Har ett par små problem kvar som också
 måste lösas med hjälp av Rikard och Henrik imorgon helst eftersom jag är bortrest
 större delen av nästa vecka.
-Saker att fråga Rikard och Henrik: Hur skriver jag ut total pot?
-                                   Varför synar spelarna för mycket?
-                                   Tips på struktur på klasser? Ha en action klass bara?
 
 7/12-18
 I väntan av att få hjälp av Henrik och Rikard snackade vi om våra problem med
@@ -78,6 +75,16 @@ i player som används för att dra bort pengar från spelarens stack. Vi har ock
 hela Street klassen att kompilera men orkar inte jobba mer nu så tar helg och
 fortsätter på detta på måndag. Nästa steg är att kunna skapa streets som spelarna
 sedan kan göra actions på.
+
+10/12-18
+Skrev om testklassen så att den använde de nya metoderna men märkte att det var
+några metoder som inte gjorde det de skulle. Vi fick hjälp av Rikard att fixa dessa
+och skrev klart testklassen så att allting funkade och allt kändes som en dröm.
+Sen skapade vi en till testklass och skrev in ett nytt scenario, och då märkte vi
+att några metoder inte var så fläckfria som vi trodde. call() metoden synade bara
+raisesizen, inte hela betsizen. Så om en spelare bettar 4kr och en annan raisar
+till 12kr, så när den tredje spelaren ska syna, så synar call() metoden endast
+8kr.
 
 
 
