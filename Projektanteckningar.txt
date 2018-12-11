@@ -84,7 +84,16 @@ Sen skapade vi en till testklass och skrev in ett nytt scenario, och då märkte
 att några metoder inte var så fläckfria som vi trodde. call() metoden synade bara
 raisesizen, inte hela betsizen. Så om en spelare bettar 4kr och en annan raisar
 till 12kr, så när den tredje spelaren ska syna, så synar call() metoden endast
-8kr.
+8kr. - ett par timmar senare - Lyckades lösa problemet genom att införa en prevBet
+variabel som höll koll på vad spelaren redan lagt in i potten under samma Street.
+Det innebar att alla metoder fungerade som de skulle och testklasserna fungerade
+fläckfritt. Nu över till uppdraget att skapa ett komplett PokerHand objekt som
+sedan ska gå att skriva över till JSON och kunna spara på servern. Rikard hjälpte
+oss att rita upp en sketch med ett förslag på hur dessa klasser skulle kunna se ut
+och vad de skulle innehålla. Så nästa uppdrag är nu att skriva klassen StreetActions
+och kunna få ihop den, Street och HandInfo i klassen PokerHand. Jag(Erik) reser dock
+till Brasilien imorgon för att spela en turnering så jag kommer förmodligen inte
+kunna jobba något mer på detta under denna vecka.
 
 
 
