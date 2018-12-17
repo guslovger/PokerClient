@@ -19,21 +19,81 @@ en sak kan testas i taget.
 
 26/11-18
 Vi stötte på ett intressant problem vid korten som ges spelarna. Vi gjorde en
-kontruktur för spelarna som kommer till showdown, alltså att man ser vila
+konstruktur för spelarna som kommer till showdown, alltså att man ser vilka
 kort de har, och en konstruktor för alla spelare som foldar, alltså en vanlig
 player konstruktor fast utan card1 och card2. Men för att hålla variablerna
 static final så måste vi instansiera card1 och card2 i konstruktorn trots
 att man inte vet vilka kort de hade. Då diskuterade jag, Henrik och Rikard
 om man skulle ge dem värdet null, eller om man skulle ge dem något annat
-värde, t.ex. en String vid namn Unknown eller liknande. Vi kom i alla fall fram
+värde, t.ex. en String vid namn Unknown eller använda Optional. Vi kom i alla fall fram
 till att vi börjar med att ge den null och skapar card1/2Folded() metoder
 som kan användas för att se om kortet är foldat eller inte. Om vi stöter
 på problem med detta framöver så får vi ändra det då.
-När man spelar poker och försöker beräkna odds e i en hand, så utgår
+När man spelar poker och försöker beräkna odds i en hand, så utgår
 man ifrån att alla kort som inte syns finns kvar i kortleken och kan delas ut
 på senare gator, även fast dessa kort i verkliga fallets har foldats av en
-annan spelare tidigare under handen. Därför passar null som ett bra värde för
+annan spelare tidigare under handen. Därför passar null som ett perfekt värde för
 foldade händer. Annars är Optional ett sätt att lösa detta på.
+
+5/12-18
+Erik - I och med att Henrik och Rikard var väldigt upptagna med att hjälpa andra
+grupper så var svårt för oss att ta oss vidare med projektet, vi tog därför hjälp
+av ett projekt på GitHub där några grabbar hade gjort ett pokerspel och använde
+därför ett par metoder från dem i vårat program för att kunna ta projektet framåt.
+Om vi kommer att använda dem i framtiden återstår att se men ville i alla fall
+kunna jobba vidare med något och också ha lite material att kunna disskutera med
+Rickard och Henrik om varför eller hur den här lösningen är bra eller inte.
+Försöker implementera bettingstruktur från pokerprojektet men
+det visar sig vara svårare än tänkt. Får se om jag kör vidare på det här eller
+frågar Rikard och Henrik om de har någon bättre lösning? Lyckades kompilera filerna
+efter många om och men, men kommer förmodligen vara tvungen att skapa lite nya
+klasser då jag temporärt la de flesta metoderna i Player bara för att få det att
+kompilera, lär göra en Action class senare och flytta någon variabel möjligtvis.
+
+
+6/12-18
+Erik - Lyckats få testklassen att skriva ut allting förutom hela potten nu iaf. Ett litet
+fel är dock att call() metoden är lite vrickad och synar för mycket än vad den ska
+så det får kollas mer på senare. Hade egentligen tänkt att sitta med hjälp från
+Rikard och Henrik någon timme men de satt i möte så vi hann bara få hjälp att lösa
+ett litet problem i testklassen. Men nu går det i stort sett att testa hela programmet,
+måste bara lösa ett par smågrejer som att flytta bort alla metoder från Player klassen
+då jag inte tror att de borde ligga där sen, la de bara där tillfälligt för att det
+skulle vara lättare att få det att fungera. Har ett par små problem kvar som också
+måste lösas med hjälp av Rikard och Henrik imorgon helst eftersom jag är bortrest
+större delen av nästa vecka.
+
+7/12-18
+I väntan av att få hjälp av Henrik och Rikard snackade vi om våra problem med
+Johannes och vi lyckades tillsammans lösa hur man skriver ut pot samt varför
+spelarna synade för mycket (till viss del). När vi sedan fick hjälp av Rikard så
+svarade han på både synfrågan och struktur frågan samtidigt, det blir helt enkelt
+för jobbigt att ha alla metoder och alla listor i player klassen, så vi ska nu
+strukturera om lite och göra Player "dummare".
+Vi har nu flyttat alla metoder från Player till Street och skapat en pay() metod
+i player som används för att dra bort pengar från spelarens stack. Vi har också fått
+hela Street klassen att kompilera men orkar inte jobba mer nu så tar helg och
+fortsätter på detta på måndag. Nästa steg är att kunna skapa streets som spelarna
+sedan kan göra actions på.
+
+10/12-18
+Skrev om testklassen så att den använde de nya metoderna men märkte att det var
+några metoder som inte gjorde det de skulle. Vi fick hjälp av Rikard att fixa dessa
+och skrev klart testklassen så att allting funkade och allt kändes som en dröm.
+Sen skapade vi en till testklass och skrev in ett nytt scenario, och då märkte vi
+att några metoder inte var så fläckfria som vi trodde. call() metoden synade bara
+raisesizen, inte hela betsizen. Så om en spelare bettar 4kr och en annan raisar
+till 12kr, så när den tredje spelaren ska syna, så synar call() metoden endast
+8kr. - ett par timmar senare - Lyckades lösa problemet genom att införa en prevBet
+variabel som höll koll på vad spelaren redan lagt in i potten under samma Street.
+Det innebar att alla metoder fungerade som de skulle och testklasserna fungerade
+fläckfritt. Nu över till uppdraget att skapa ett komplett PokerHand objekt som
+sedan ska gå att skriva över till JSON och kunna spara på servern. Rikard hjälpte
+oss att rita upp en sketch med ett förslag på hur dessa klasser skulle kunna se ut
+och vad de skulle innehålla. Så nästa uppdrag är nu att skriva klassen StreetActions
+och kunna få ihop den, Street och HandInfo i klassen PokerHand. Jag(Erik) reser dock
+till Brasilien imorgon för att spela en turnering så jag kommer förmodligen inte
+kunna jobba något mer på detta under denna vecka.
 
 
 

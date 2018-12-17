@@ -21,7 +21,7 @@ public class HandInfo {
 
   @Override
   public String toString(){
-    return location + " " + gametype + " " + smallBlind + "/" + bigBlind;
+    return location + " | " + gametype + ", " + smallBlind + "/" + bigBlind;
   }
 
 }

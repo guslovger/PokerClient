@@ -7,7 +7,7 @@ import src.main.resources.Card;
 import src.main.resources.HandInfo;
 import src.main.resources.Street;
 
-public class Test {
+public class Test2 {
 
   public static void main(String[] args) {
 
@@ -17,20 +17,21 @@ public class Test {
 
     ArrayList<Player> players = new ArrayList<>();
 
-    Player p1 = new Player("Max",2000,Player.Position.SB,
-    new Card(Card.Suit.HEARTS,Card.Rank.SIX), new Card(Card.Suit.SPADES,Card.Rank.SIX));
-    Player p2 = new Player("Frans",2000,Player.Position.BB,
-    new Card(Card.Suit.DIAMONDS,Card.Rank.FIVE), new Card(Card.Suit.CLUBS,Card.Rank.FIVE));
-    Player p3 = new Player("Player 3",2000,Player.Position.HJ);
-    Player p4 = new Player("HERO",2000,Player.Position.CO,
-    new Card(Card.Suit.HEARTS,Card.Rank.JACK), new Card(Card.Suit.HEARTS,Card.Rank.TEN));
-    Player p5 = new Player("Player 5",2000,Player.Position.BUT);
+    Player p1 = new Player("Player 1",378,Player.Position.SB);
+    Player p2 = new Player("Player 2",170,Player.Position.BB);
+    Player p3 = new Player("Player 3",754.06,Player.Position.LJ);
+    Player p4 = new Player("Player 4",349.16,Player.Position.HJ);
+    Player p5 = new Player("Player 5",1126.13,Player.Position.CO);
+    Player p6 = new Player("HERO",572.7,Player.Position.BUT,
+    new Card(Card.Suit.HEARTS,Card.Rank.ACE), new Card(Card.Suit.HEARTS,Card.Rank.QUEEN));
 
     players.add(p1);
     players.add(p2);
     players.add(p3);
     players.add(p4);
     players.add(p5);
+    players.add(p6);
+
 
     for (Player p : players) {
       System.out.println(p);
@@ -38,24 +39,27 @@ public class Test {
 
     Street pf = new Street(Street.Streets.PREFLOP,Street.pot(),players);
 
-
     System.out.println("================================");
     System.out.println("Hand begins!");
     System.out.println("================================");
 
 
-    pf.postSmall(p1,10);
-    pf.postBig(p2,10);
-    pf.fold(p3);
-    pf.raise(p4,50);
-    pf.fold(p5);
+    pf.postSmall(p1,2);
+    pf.postBig(p2,4);
+    pf.raise(p3,12);
+    pf.call(p4);
+    pf.call(p5);
+    pf.raise(p6,56);
     pf.call(p1);
     pf.call(p2);
+    pf.call(p3);
+    pf.fold(p4);
+    pf.call(p5);
 
     ArrayList<Card> communityCards = new ArrayList<>();
-    Card c1 = new Card(Card.Suit.HEARTS,Card.Rank.ACE);
+    Card c1 = new Card(Card.Suit.HEARTS,Card.Rank.TEN);
     Card c2 = new Card(Card.Suit.SPADES,Card.Rank.DEUCE);
-    Card c3 = new Card(Card.Suit.HEARTS,Card.Rank.FIVE);
+    Card c3 = new Card(Card.Suit.HEARTS,Card.Rank.EIGHT);
 
     communityCards.add(c1);
     communityCards.add(c2);
@@ -76,13 +80,14 @@ public class Test {
     Street f = new Street(Street.Streets.FLOP,Street.pot(),players);
 
     f.check(p1);
-    f.check(p2);
-    f.bet(p4,100);
+    f.allin(p2);
+    f.call(p3);
+    f.fold(p5);
+    f.allin(p6);
     f.fold(p1);
-    f.raise(p2,350);
-    f.call(p4);
+    f.fold(p3);
 
-    Card c4 = new Card(Card.Suit.SPADES,Card.Rank.KING);
+    Card c4 = new Card(Card.Suit.CLUBS,Card.Rank.JACK);
     communityCards.add(c4);
 
     System.out.println("--------------------------------");
@@ -97,12 +102,9 @@ public class Test {
     }
     System.out.println("================================");
 
-    Street t = new Street(Street.Streets.TURN,850,players);
+    Street t = new Street(Street.Streets.TURN,Street.pot(),players);
 
-    t.bet(p2,500);
-    t.call(p4);
-
-    Card c5 = new Card(Card.Suit.HEARTS,Card.Rank.EIGHT);
+    Card c5 = new Card(Card.Suit.DIAMONDS,Card.Rank.KING);
     communityCards.add(c5);
 
     System.out.println("--------------------------------");
@@ -119,9 +121,6 @@ public class Test {
 
     Street r = new Street(Street.Streets.RIVER,Street.pot(),players);
 
-    r.check(p2);
-    r.allin(p4);
-    r.call(p2);
     System.out.println("================================");
     System.out.println("Current pot: " + Street.pot());
     for (Player p : players) {
