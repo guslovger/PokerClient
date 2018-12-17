@@ -62,7 +62,7 @@ public class Test {
     communityCards.add(c3);
 
     System.out.println("--------------------------------");
-    System.out.println("Current pot: " + Street.printPot());
+    System.out.println("Current pot: " + Street.pot());
     for (Player p : players) {
       System.out.println(p);
     }
@@ -86,7 +86,7 @@ public class Test {
     communityCards.add(c4);
 
     System.out.println("--------------------------------");
-    System.out.println("Current pot: " + Street.printPot());
+    System.out.println("Current pot: " + Street.pot());
     for (Player p : players) {
       System.out.println(p);
     }
@@ -106,7 +106,7 @@ public class Test {
     communityCards.add(c5);
 
     System.out.println("--------------------------------");
-    System.out.println("Current pot: " + Street.printPot());
+    System.out.println("Current pot: " + Street.pot());
     for (Player p : players) {
       System.out.println(p);
     }
@@ -123,7 +123,7 @@ public class Test {
     r.allin(p4);
     r.call(p2);
     System.out.println("================================");
-    System.out.println("Current pot: " + Street.printPot());
+    System.out.println("Current pot: " + Street.pot());
     for (Player p : players) {
       System.out.println(p);
     }

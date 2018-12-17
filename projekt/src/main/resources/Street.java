@@ -77,19 +77,19 @@ public class Street {
   public void resetPrevBet(){
     for (Player p : players) {
       p.resetPrevBet();
-      System.out.println("resetting prev for "+ p.name());
+  //    System.out.println("resetting prev for "+ p.name());
     }
   }
 
   public double call(Player player){
     double amount = 0.0;
-    System.out.println("in call(), player prevBet: " +
-      player.name() + " " + player.prevBet());
+  //  System.out.println("in call(), player prevBet: " +
+  //    player.name() + " " + player.prevBet());
     if (player.stack() >= bet) { // player has more than last bet
-      player.pay(bet);
       //System.out.println(player.prevBet());
       amount = bet - player.prevBet();
       player.prevBet = bet;
+      player.pay(amount);
     } else if (player.stack() < bet) { // player has less than bet
       amount = player.stack();
       player.pay(player.stack());
