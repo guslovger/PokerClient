@@ -98,7 +98,17 @@ kunna jobba något mer på detta under denna vecka.
 17/12-18
 Suttit en timme och fixat git för att vi skulle mergea grenen vi jobbat med till
 master-grenen. Lyckades efter många om och men med hjälp av Rikard så att vi nu
-kan börja jobba med de nya klasserna.
+kan börja jobba med de nya klasserna. Jobbade en stund och börjat fila på klasserna.
+Sen började vi disskutera om vi verkligen behöver göra om alla klasser och bygga
+om hela strukturen hur det set ut när man gör och sparar en hand. Testklasserna i
+den förra varianten fungerade bra och det känns som att det borde räcka för att
+man ska kunna göra det vi vill at man ska kunna göra i appen. Det ända vi har kvar
+att göra isf är att skapa hela PokerHand-objekt av våra Street-objekt för att sedan
+kunna göra om dem till JSON. Vi börjar nämligen känna oss lite stressade med antalet
+arbetsdagar vi har kvar och hur mycket mer saker vi måste göra. Hittils har vi
+endast jobbat med Java i stort sett och har inte ens börjat med Server och Android.
+Känns som att det är dags att gå vidare från Java så att vi faktiskt kan få klart
+ett projekt som vi kan skicka in.
 
 
 

@@ -8,9 +8,10 @@ import src.main.resources.Card;
 
 public class PokerHand {
 
-  List<Player> players;
-  List<Street> streets;
-  
+  private List<Player> players;
+  private List<Street> streets;
+  private HandInfo handinfo;
+
   void run() {
     for (Street st : streets) {
       st.run();
