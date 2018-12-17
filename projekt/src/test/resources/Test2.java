@@ -79,10 +79,12 @@ public class Test2 {
 
     Street f = new Street(Street.Streets.FLOP,Street.pot(),players);
 
+    f.check(p1);
     f.allin(p2);
     f.call(p3);
     f.fold(p5);
     f.allin(p6);
+    f.fold(p1);
     f.fold(p3);
 
     Card c4 = new Card(Card.Suit.CLUBS,Card.Rank.JACK);
