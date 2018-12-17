@@ -3,14 +3,16 @@ package src.main.resources;
 import src.main.resources.Player;
 import src.main.resources.Card;
 import java.util.*;
+import src.main.resources.StreetAction;
 
 public class Street {
 
   private static double pot;
-  public static ArrayList<Player> players = new ArrayList<>();
+  public static HashSet<Player> players = new HashSet<>();
+  public static ArrayList<Action> actions = new ArrayList<>();
   protected double bet;
-  protected double currentRaise;
   protected double stack;
+  protected double currentRaise;
   private StreetName streetName;
 
   public enum StreetName {
@@ -19,33 +21,47 @@ public class Street {
     TURN,
     RIVER;
   }
-
+/*
   public Street(StreetName streetName, double pot, ArrayList<Player> players){
     this.streetName = streetName;
     this.pot = pot;
     this.players = players;
     resetPrevBet();
+  } */
+
+  public Street(StreetName streetName){
+    this.streetName = streetName;
+    players = new HashSet<Player>();
+    actions = new ArrayList<Action>();
+  }
+
+  void addPlayer(Player p){
+    players.add(p);
+  }
+
+  void addStreetAction(StreetAction sa){
+    actions.add(sa);
   }
 
   public static double pot(){ return pot; }
 
   void run() {
     for (StreetAction a : actions) {
-      switch (action.type) {
+      switch (streetAction.type) {
         case FOLD:
-          fold(action.player());
+          fold(streetAction.player());
           break;
           case BET:
-          bet(action.player(), action.amount());
+          bet(streetAction.player(), streetAction.amount());
           break;
           case CALL:
-          call(action.player());
+          call(streetAction.player());
           break;
           case RAISE:
-          raise(action.player(), action.amount());
+          raise(streetAction.player(), streetAction.amount());
           break;
           case CHECK:
-          check(action.player());
+          check(streetAction.player());
           break;
           case ALLIN:
           allin(action.player());
