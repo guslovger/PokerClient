@@ -1,6 +1,9 @@
 package src.main.resources;
 
 import src.main.resources.Card;
+import java.util.*;
+import src.main.resources.HandInfo;
+import src.main.resources.Street;
 
 public class Player {
 
@@ -17,33 +20,45 @@ public class Player {
     BUT;
   }
 
-  private final String name;
-  private final int stack;
+  private String name;
+  private double stack;
+  protected double bet;
+  public double prevBet;
   private Position position;
   private final Card card1;
   private final Card card2;
 
-  public Player(String name, int stack, Position position, Card card1, Card card2){
+  public Player(String name, double stack, Position position, Card card1, Card card2){
     this.name = name;
     this.stack = stack;
     this.position = position;
+    this.bet = 0;
+    this.prevBet = 0;
     this.card1 = card1;
     this.card2 = card2;
   }
 
-  public String name() { return name; }
-  public int stack() { return stack; }
-  public Position position() { return position; }
-  public Card card1() { return card1; }
-  public Card card2() { return card2; }
-
-  public Player(String name, int stack, Position position){
+  public Player(String name, double stack, Position position){
     this.name = name;
     this.stack = stack;
+    this.bet = 0;
+    this.prevBet = 0;
     this.position = position;
     card1=null;
     card2=null;
   }
+
+  public String name() { return name; }
+  public double stack() { return stack; }
+  public double bet() { return bet; }
+  public double prevBet() { return prevBet; }
+  public void resetPrevBet() {
+    this.prevBet = 0;
+  }
+
+  public Position position() { return position; }
+  public Card card1() { return card1; }
+  public Card card2() { return card2; }
 
   public boolean card1Folded(){
     return !(card1==null);
@@ -54,7 +69,12 @@ public class Player {
 
   @Override
   public String toString(){
-    return name + " " + stack + " " + position + " | " + card1 + " " + card2;
+    return "(" + position + ")" + name + " " + stack + " " + " | " + card1 + " " + card2;
+  }
+
+  public double pay(double amount) {
+    this.stack -= amount;
+    return amount;
   }
 
 }
