@@ -2,8 +2,6 @@ package src.main.resources;
 
 public class StreetAction {
 
-  Street street;
-
   enum Type {
     BET,
     FOLD,
@@ -18,6 +16,7 @@ public class StreetAction {
   Player p;
   double amount;
   Action.Type type;
+  Street street;
 
   Player player() { return player; }
   double amount() { return amount; }

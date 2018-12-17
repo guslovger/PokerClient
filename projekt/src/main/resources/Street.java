@@ -29,6 +29,37 @@ public class Street {
 
   public static double pot(){ return pot; }
 
+  void run() {
+    for (StreetAction a : actions) {
+      switch (action.type) {
+        case FOLD:
+          fold(action.player());
+          break;
+          case BET:
+          bet(action.player(), action.amount());
+          break;
+          case CALL:
+          call(action.player());
+          break;
+          case RAISE:
+          raise(action.player(), action.amount());
+          break;
+          case CHECK:
+          check(action.player());
+          break;
+          case ALLIN:
+          allin(action.player());
+          break;
+          case POSTSMALL:
+          postSmall(action.player(), action.amount());
+          break;
+          case POSTBIG:
+          postBig(action.player(), action.amount());
+          break;
+      }
+    }
+  }
+
   public void addPot(double amount){
     this.pot += amount;
   }
