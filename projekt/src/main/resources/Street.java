@@ -11,17 +11,17 @@ public class Street {
   protected double bet;
   protected double currentRaise;
   protected double stack;
-  private Streets streets;
+  private StreetName streetName;
 
-  public enum Streets {
+  public enum StreetName {
     PREFLOP,
     FLOP,
     TURN,
     RIVER;
   }
 
-  public Street(Streets streets, double pot, ArrayList<Player> players){
-    this.streets = streets;
+  public Street(StreetName streetName, double pot, ArrayList<Player> players){
+    this.streetName = streetName;
     this.pot = pot;
     this.players = players;
     resetPrevBet();

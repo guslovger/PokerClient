@@ -10,7 +10,9 @@ public class StreetAction {
     CALL,
     RAISE,
     CHECK,
-    ALLIN;
+    ALLIN,
+    POSTSMALL,
+    POSTBIG;
   }
 
   Player p;
