@@ -95,6 +95,24 @@ och kunna få ihop den, Street och HandInfo i klassen PokerHand. Jag(Erik) reser
 till Brasilien imorgon för att spela en turnering så jag kommer förmodligen inte
 kunna jobba något mer på detta under denna vecka.
 
+17/12-18
+Suttit en timme och fixat git för att vi skulle mergea grenen vi jobbat med till
+master-grenen. Lyckades efter många om och men med hjälp av Rikard så att vi nu
+kan börja jobba med de nya klasserna. Jobbade en stund och börjat fila på klasserna.
+Sen började vi disskutera om vi verkligen behöver göra om alla klasser och bygga
+om hela strukturen hur det set ut när man gör och sparar en hand. Testklasserna i
+den förra varianten fungerade bra och det känns som att det borde räcka för att
+man ska kunna göra det vi vill at man ska kunna göra i appen. Det ända vi har kvar
+att göra isf är att skapa hela PokerHand-objekt av våra Street-objekt för att sedan
+kunna göra om dem till JSON. Vi börjar nämligen känna oss lite stressade med antalet
+arbetsdagar vi har kvar och hur mycket mer saker vi måste göra. Hittils har vi
+endast jobbat med Java i stort sett och har inte ens börjat med Server och Android.
+Känns som att det är dags att gå vidare från Java så att vi faktiskt kan få klart
+ett projekt som vi kan skicka in.
+Vi gick och pratade med Rickard om detta och vi kom då fram till att det nog är
+klokast att gå vidare med det vi har för att försöka bygga appen och servern,
+istället för att bygga om och förbättra java klasserna.
+
 
 
 Contribution:
@@ -110,9 +128,3 @@ Json:
 Java servlet:
 
 Misc:
-
-TODO
-Hur ser en hand ut – göra klass
-Skriva kod som skapar en hand.
-Definiera en hand i en klass.
-Testklass att göra testhänder som kan skriva ut dem.
