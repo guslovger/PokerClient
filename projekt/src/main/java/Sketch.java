@@ -27,7 +27,7 @@ class Street {
   void bet(StreetAction action) {
     double amount = action.amount;
     Player player = action.player();
-    
+
   }
 }
 
