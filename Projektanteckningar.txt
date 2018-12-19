@@ -113,6 +113,37 @@ Vi gick och pratade med Rickard om detta och vi kom då fram till att det nog ä
 klokast att gå vidare med det vi har för att försöka bygga appen och servern,
 istället för att bygga om och förbättra java klasserna.
 
+18/12-18
+Vi har idag påbörjat arbetet i Android Studios. Vi satt upp ett repo och klonade det
+till båda datorerna. När vi sedan skulle fixa en dropdown meny i form av en Spinner
+så crashade programmet och vi har sedan nu lagt ungefär 2h på att få git att fungera
+som det ska.
+Nu har vi kommit igång ordentligt och har börjat fixa gränssnittet och lite
+aktiviteter och vyer. Har börjat lägga till dropdownmenyer i NewHandActivity och
+tänkte att vi började med en förenklad version så att vi får allt att fungera, sen
+kan vi försöka fixa till det att det blir fulländat. Tills vidare kör vi på en fast
+array på Locations, men som i framtiden ska vara en arraylist som användaren själv
+ska kunna lägga till och ta bort items ifrån. Och vi kör Blinds som en stor string
+istället för att ha två små intar som slås ihop, då det är enklare nu när vi är
+under tidspress. Vi gjorde också en metod covertBlindsToInt som använde konstanter
+för att göra om strängarna till intar så att de skulle kunna användas i HandInfo objekten
+senare när man fixat en Small och en Big blind istället för en hel Blinds sträng.
+Vi har fortfarande massvis med aktiviteter och vyer kvar att göra men nu är vi
+på god väg och vet hur vi ska göra det.
+
+19/12-18
+Jobbat vidare med Android och har nu skapat klart alla aktiviteter och knappar
+så man kan hoppa mellan alla aktiviteter. Nu måste vi bara fylla aktiviteterna med
+knappar och metoder så att man kan fylla i handen. Vi kom också på att vi
+måste fixa klart lite mer i java innan vi kan göra klart appen. För just nu
+har vi inget sätt att sätta ihop alla Player, Street och HandInfo-klasser till
+ett helt objekt, så det måste lösas. För tanken är ju att när man trycker på knappen
+"New Hand" i appen, så ska ett tomt PokerHand objekt skapas som man sedan måste fylla
+i med hjälp av alla knappar och menyer etc. Och när man fyllt i all nödvändig information
+så görs objektet om till JSON och sparas på servern. Det går sedan att hämta
+alla objekt när man trycker på Saved Hands knappen, då alla objekt hämtas och
+parseas tillbaka tillbaka så att användern kan läsa/visa den spelade handen.
+
 
 
 Contribution:

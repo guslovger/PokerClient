@@ -8,6 +8,10 @@ import src.main.resources.Card;
 
 public class PokerHand {
 
+  //Måste fixa den här klassen så att man kan skapa PokerHand-objekt.
+  //Alltså göra en kontruktor med handinfo, playerlista och lista med streets
+  //som har listor med actions. Får kolla mer på det senare.
+
   public String hand;
   public ArrayList<Player> players;
   public int potSize;
