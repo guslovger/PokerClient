@@ -144,6 +144,13 @@ så görs objektet om till JSON och sparas på servern. Det går sedan att hämt
 alla objekt när man trycker på Saved Hands knappen, då alla objekt hämtas och
 parseas tillbaka tillbaka så att användern kan läsa/visa den spelade handen.
 
+4/1-19
+Tillbaka från julledigheten. Blev mindre arbete än planerat under julveckan så vi
+har en del att fixa nu. Vi har fixat till PokerHand-klassen så att man nu kan skapa
+PokerHand-objekt som är tänkt att sedan skrivas om till JSON som kan sparas på
+servern. La till en printPokerHand() metod för att enklare testa klassen. Har också
+börjat fixa till testklassen så att vi kan kolla att allt funkar som det ska.
+
 
 
 Contribution:
