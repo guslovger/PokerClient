@@ -8,27 +8,31 @@ import src.main.resources.Card;
 
 public class PokerHand {
 
-  //Måste fixa den här klassen så att man kan skapa PokerHand-objekt.
-  //Alltså göra en kontruktor med handinfo, playerlista och lista med streets
-  //som har listor med actions. Får kolla mer på det senare.
+  private HandInfo handInfo; //Overview info of hand
+  public static List<Player> playerList = new ArrayList<>(); //The players playing the hand
+  public static List<Street> streetList = new ArrayList<>(); //What happened in the different streets of the hand
+  public static List<Card> communityCards = new ArrayList<>(); //The community cards the dealer puts on the table
 
-  public String hand;
-  public ArrayList<Player> players;
-  public int potSize;
-
-  public PokerHand(String hand){
-    this.hand = hand;
-    this.players = new ArrayList<>();
-  }
-  public PokerHand(String hand, ArrayList<Player> players){
-    this.hand = hand;
-    this.players = players;
-  }
-  public String hand(){
-   return hand;
-  }
-  public ArrayList<Player> players(){
-    return players;
+  public PokerHand(HandInfo handInfo, ArrayList<Player> playerList,
+  ArrayList<Street> streetList, ArrayList<Card> communityCards){
+    this.handInfo = handInfo;
+    this.playerList = playerList;
+    this.streetList = streetList;
+    this.communityCards = communityCards;
   }
 
+  public void printPokerHand(){
+    System.out.println(" ");
+    System.out.println(handInfo.toString());
+    System.out.println(" ");
+    for (Player p : playerList) {
+      System.out.println(p);
+    }
+    System.out.println(" ");
+    for (Street s : streetList) {
+      System.out.println(s);
+    }
+    System.out.println(" ");
+    System.out.println("Klart");
+  }
 }

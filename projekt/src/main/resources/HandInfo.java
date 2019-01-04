@@ -24,4 +24,8 @@ public class HandInfo {
     return location + " | " + gametype + ", " + smallBlind + "/" + bigBlind;
   }
 
+  public String printHandInfo(){
+    return location + " | " + gametype + ", " + smallBlind + "/" + bigBlind;
+  }
+
 }
