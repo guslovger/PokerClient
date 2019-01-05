@@ -27,6 +27,10 @@ public class Street {
     resetPrevBet();
   }
 
+  public String toString() {
+    return streets + " ";
+  }
+
   public static double pot(){ return pot; }
 
   public void addPot(double amount){

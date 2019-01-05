@@ -151,7 +151,11 @@ PokerHand-objekt som är tänkt att sedan skrivas om till JSON som kan sparas p�
 servern. La till en printPokerHand() metod för att enklare testa klassen. Har också
 börjat fixa till testklassen så att vi kan kolla att allt funkar som det ska.
 
-
+5/1-19
+Skrivit klart testklassen och fixat lite metoder och toStrings så att testklassen
+skriver ut det den ska. Hinner inte köra så många fler tester med tanke på att vi
+måste börja bli klara med projektet så vi får lägga vår tid på android och servern
+framöver.
 
 Contribution:
 

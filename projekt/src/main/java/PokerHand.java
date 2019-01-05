@@ -24,15 +24,14 @@ public class PokerHand {
   public void printPokerHand(){
     System.out.println(" ");
     System.out.println(handInfo.toString());
-    System.out.println(" ");
     for (Player p : playerList) {
       System.out.println(p);
     }
     System.out.println(" ");
     for (Street s : streetList) {
-      System.out.println(s);
+      System.out.println(s.toString());
     }
+    System.out.println("===================");
     System.out.println(" ");
-    System.out.println("Klart");
   }
 }

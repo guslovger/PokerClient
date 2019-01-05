@@ -57,6 +57,41 @@ public class TestPokerHand {
 
     ph.printPokerHand();
 
+    Street f = new Street(Street.Streets.FLOP,Street.pot(),players);
+    streets.add(f);
+
+    f.check(p1);
+    f.check(p2);
+    f.bet(p4,100);
+    f.fold(p1);
+    f.raise(p2,350);
+    f.call(p4);
+
+    Card c4 = new Card(Card.Suit.SPADES,Card.Rank.KING);
+    cards.add(c4);
+
+    ph.printPokerHand();
+
+    Street t = new Street(Street.Streets.TURN,850,players);
+    streets.add(t);
+
+    t.bet(p2,500);
+    t.call(p4);
+
+    Card c5 = new Card(Card.Suit.HEARTS,Card.Rank.EIGHT);
+    cards.add(c5);
+
+    ph.printPokerHand();
+
+    Street r = new Street(Street.Streets.RIVER,Street.pot(),players);
+    streets.add(r);
+
+    r.check(p2);
+    r.allin(p4);
+    r.call(p2);
+
+    ph.printPokerHand();
+
   }
 
 }
