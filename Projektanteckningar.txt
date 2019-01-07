@@ -1,4 +1,4 @@
-21/11-18
+﻿21/11-18
 Vi tog en idé som Erik tidigare haft i form av en app där man kan spara pokerhänder
 man spelat live (alltså på t.ex. ett casino, inte på nätet) för att sedan kunna
 dela dessa med andra. Vi inledde projektet med att börja rita upp hur olika
@@ -156,6 +156,12 @@ Skrivit klart testklassen och fixat lite metoder och toStrings så att testklass
 skriver ut det den ska. Hinner inte köra så många fler tester med tanke på att vi
 måste börja bli klara med projektet så vi får lägga vår tid på android och servern
 framöver.
+
+7/1-19
+Arbetat med Serverdelen. Har skapat javafiler för hantera databasen och Servleten. Har skapat 
+en databas som vi ska utgå ifrån och kan skriva ut innehållet i en webläsare men hade problem
+med att skapa en lista med de objekt som vi hämtade från databasen. Försökte arbeta med JSONdelen
+men hade svårt att veta hur jag skulle göra när listan inte fungerade.
 
 Contribution:
 
