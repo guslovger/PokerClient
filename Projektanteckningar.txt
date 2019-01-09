@@ -158,13 +158,28 @@ måste börja bli klara med projektet så vi får lägga vår tid på android oc
 framöver.
 
 7/1-19
-Arbetat med Serverdelen. Har skapat javafiler för hantera databasen och Servleten. Har skapat 
+Arbetat med Serverdelen. Har skapat javafiler för hantera databasen och Servleten. Har skapat
 en databas som vi ska utgå ifrån och kan skriva ut innehållet i en webläsare men hade problem
-med att skapa en lista med de objekt som vi hämtade från databasen. Försökte arbeta 
+med att skapa en lista med de objekt som vi hämtade från databasen. Försökte arbeta
 med JSONdelen men hade svårt att veta hur jag skulle göra när listan inte fungerade.
 
 8/1-19
-Arbetat med Servern, Nu får den upp players som JSON. 
+Arbetat med Servern, Nu får den upp players som JSON.
+
+9/1-19
+Idag har vi gjort Session så att vi kan spara värdena vi väljer i våra Spinners
+i NewHandActivity och göra ett HandInfo-objekt av dessa. Sedan sparas dessa värden
+i våra spinners så att de inte resettas när man byter aktivitet. Sen har vi också
+fixat EditPlayer-aktiviteten med att vi får upp så många EditText som vi valt i
+Spinnern för antalet spelare. Vi använde oss av en layout i en annan layout för att
+först få en rad av EditText som sedan fick var sin rad av fler EditText-views.
+Vi har också tagit beslutet att simplifiera Player-objekten till att de bara
+använder sig av Strings istället för String, double, enum och två Card-objekt,
+detta på grund av tidsbristen. Så nu kan vi skapa playerobjekt och lägga till dem
+i playerlistan, samt att vi kan skapa och spara HandInfo-objektet. Det enda som
+kvarstår nu är att fylla i actions på våra streets vilket vi ska börja kolla på
+imorgon hur vi ska lösa det.
+
 
 Contribution:
 
