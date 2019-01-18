@@ -180,6 +180,49 @@ i playerlistan, samt att vi kan skapa och spara HandInfo-objektet. Det enda som
 kvarstår nu är att fylla i actions på våra streets vilket vi ska börja kolla på
 imorgon hur vi ska lösa det.
 
+10/1-19
+Fixat så att spinnern i EditPlayersActivity inte resettas när man byter aktivitet.
+Vi har stött på ett litet problem dock om man går tillbaka till EditPlayers fler
+gånger. För när man får därifrån så läggs de tomma objekten till i playerlistan.
+Men vanligtvis kommer inte användaren gå till EditPlayers mer än en gång så det
+borde inte vara något problem just nu, men som framtida projekt måste det åtgärdas.
+Never mind vi fixade det nu istället haha. Nu är det bara våra Streets kvar att fixa
+och sen sparandet av händer så är det klart. Vi har också fixat Headers vid varje
+aktivitet så att det inte längre står AndroidPokerClient, utan istället står aktivitetens
+namn där. Vi kom nu också på att tanken vid skapandet av Players var att använda
+en spinner för at välja namn, där man kan lägga till och ta bort namn för att göra
+det enklare om man lägger till fler hela händer där man spelat med samma spelare.
+Dessa namn skulle då sparas på servern via JSON, vilket vi redan fått att fungera.
+Men eftersom vi nu skriver in namn med en EditText så fungerar inte det, så det blir
+ett framtida projekt att lösa. Vi började sedan jobba på våra Streets. Vi skapade
+en Scrollable Layout för att kunna lägga till en längre lista av actions, eftersom
+spelare ofta gör fler än en sak under en street så kan listan blir ganska lång. Vi
+lyckades efter många om och men skapa en knapp som lägger till fler av dessa objekt
+som består av 2 spinners och en EditText-view i en lista som man kan fylla som
+dessutom är scrollbar. Nu ska vi bara lägga in det på alla streets, spara värdena
+som skrivs in i dessa Action-objekt och sen kunna spara hela altet i ett PokerHand
+objekt som sedan ska kunna sparas i JSON.
+
+17/1-19
+Nu har vi lagt in scrollable och addAction-knappen på samtliga aktiviteter som
+ska ha dom. Nu ska vi fixa så att alla värden, både de man väljer i actions, alltså
+vilken spelare som gör vad, men också communityCards, alltså de kort som dealern
+lägger upp på bordet som alla använder i Texas Hold'em. Nu har vi fixat så att
+alla värden som användaren sätter in sparas i Session-objektet i form av Street-objekt
+som sparas i en lista som sen sparas i sessions List<List<Street>> streets.
+Vi har dessutom lagt till att de korten som man skriver in i Flop-aktiviteten
+nu sparas i communityCards-listan och visas sen i en TextView på Turn-aktiviteten.
+Det kortet man skriver in där sparas sen också i samma lista och sen visas alla 4
+kort i River-aktiviteten, och där skriver man in och sparar det sista kortet i listan.
+Sen småfixade vi lite saker som t.ex. Arrayen med actions som spelare kan välja mellan
+som saknade ett par val, och vissa utskrifter i Log som skrev ut fel saker.
+Det enda vi har kvar att göra nu är att skapa ett PokerHand-objekt av allt vi har
+sparat i vår singleton Session, och sen kunna skriva om det till JSON och skicka
+det till servern så att man kan spara sitt arbete. Sen är det nog klart för inlämning?
+Vi har också tänkt skriva en lång lista på saker som måste ändras eller fixas för att
+förbättra appen. Tanken just nu är att fortsäta arbeta på appen framöver så att
+i framtiden möjligtvis skulle kunna lansera den på google play store. Har hört att
+det är en fin sak att ha på sitt CV.
 
 Contribution:
 
